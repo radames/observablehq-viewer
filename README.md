@@ -1,6 +1,6 @@
 # ObservableHQ Viewer 
 
-This project make it simple to preview an [Observablehq](https://observablehq.com/) notebook outside Observablehq UI.
+This project makes it simple to preview an [Observablehq](https://observablehq.com/) notebook outside Observablehq UI.
 
 ## Usage
 

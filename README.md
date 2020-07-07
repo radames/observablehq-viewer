@@ -4,11 +4,12 @@ This project makes it simple to preview an [Observablehq](https://observablehq.c
 
 ## Usage
 
-### 1. `https://observablehq-viewer.glitch.me/USER/NOTEBOOK`
-### 2. `https://observablehq-viewer.glitch.me/USER/NOTEBOOK?cells=cellname1,cellname2`
+1. #### `https://observablehq-viewer.glitch.me/USER/NOTEBOOK`
+1. #### `https://observablehq-viewer.glitch.me/USER/NOTEBOOK?cells=cellname1,cellname2`
+1. #### `https://observablehq-viewer.glitch.me/USER/NOTEBOOK?cells=cellname1,cellname2&fullwidth=1`
 
 
-## Examples
+#### Examples
 
 
 
@@ -21,7 +22,7 @@ from [`@fil/synchronized-projections`](https://observablehq.com/@fil/synchronize
 from [`@mbostock/voronoi-stippling`](https://observablehq.com/@mbostock/voronoi-stippling)
 
 
-#### Named Cells
+### Named Cells
 
 You can target only interesting cells and let code cells out of your preview. You will need named cells
 
@@ -31,7 +32,7 @@ cellName = {
   
 }
 ```
-## Example
+#### Example
 
 Take this https://observablehq.com/@johnburnmurdoch/bar-chart-race
 
@@ -53,6 +54,21 @@ or the whole notebook
 or multiple cells
 
 https://observablehq-viewer.glitch.me/@radames/hello-d3fc-webgl?cells=title,chartEl
+
+### Full Width
+
+Pass `fullwidth=1` param to render the cells on 100% of viewport, disabling `max-width: 64rem` that Observablehq UI defaults.
+
+#### Example
+
+
+### [`https://observablehq-viewer.glitch.me/@johnburnmurdoch/bar-chart-race?cells=chart&fullwidth=1`](https://observablehq-viewer.glitch.me/@johnburnmurdoch/bar-chart-race?cells=chart&fullwidth=1)
+
+
+or the whole notebook
+
+### [`https://observablehq-viewer.glitch.me/@johnburnmurdoch/bar-chart-race?fullwidth=1`](https://observablehq-viewer.glitch.me/@johnburnmurdoch/bar-chart-race?fullwidth=1)
+
 
 #### TODOS
  - link back to original notebook on Observablehq

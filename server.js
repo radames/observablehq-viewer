@@ -54,20 +54,10 @@ app.get('/:user/:project', (req, res, next) => {
       const runtime = new Runtime(library);
       ${!cellsNames
         ? `runtime.module(define, Inspector.into('.wrapper'));`
-        : `runtime.module(define, name => {
-
-   ${cellsNames
-     .map(
-       (name) =>
-         `if (name === '${name}') return Inspector.into(".wrapper .observablehq-${name.replace(
-           /\s/g,
-           '-'
-         )}")();`
-     )
-     .join('\n')}
-  });`};
+        : `runtime.module(define, name => ${JSON.stringify(cellsNames)}.includes(name) && Inspector.into(".wrapper .observablehq-" + name.replace(/\\s/g, '-'))());`
+      }
     </script>
-  `;
+`;
 
   try {
     const out = html`

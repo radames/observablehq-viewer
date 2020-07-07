@@ -18,7 +18,9 @@ app.use(express.static('public'));
 
 app.get('/:user/:project', (req, res, next) => {
   const cellsNames = req.query.cells ? req.query.cells.split(',') : null;
-  console.log(req.query.cells);
+  const fullWidth = req.query.fullwidth
+    ? !!parseInt(req.query.fullwidth)
+    : false;
   const { user, project } = req.params;
   const cellsHtml = cellsNames
     ? cellsNames.map(
@@ -56,9 +58,9 @@ app.get('/:user/:project', (req, res, next) => {
       ${!cellsNames
         ? `runtime.module(define, Inspector.into('.wrapper'));`
         : `runtime.module(define, name => ${JSON.stringify(cellsNames)}.includes(name) && Inspector.into(".wrapper .observablehq-" + name.replace(/\\s/g, '-'))());`
-      }
+      };
     </script>
-`;
+  `;
 
   try {
     const out = html`
@@ -78,7 +80,7 @@ app.get('/:user/:project', (req, res, next) => {
           <link href="/styles.css" rel="stylesheet" />
         </head>
         <body>
-          <main class="mw8 center wrapper">
+          <main class="${!fullWidth ? 'mw8' : ''} center wrapper">
             ${cellsHtml}
           </main>
           ${script}

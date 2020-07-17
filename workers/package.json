@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "worker",
+  "version": "1.0.0",
+  "description": "Worker service to generate Observablehq notebooks previews outside Observablehq UI. It's also reproducing Observablehq UI styles",
+  "main": "index.js",
+  "author": "Radamés Ajna <radamajna@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@popeindustries/lit-html-server": "^3.1.0"
+  }
+}

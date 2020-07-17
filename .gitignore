@@ -115,3 +115,15 @@ dist
 .yarn/install-state.gz
 .pnp.*
 .DS_Store
+
+
+/target
+/dist
+**/*.rs.bk
+Cargo.lock
+bin/
+pkg/
+wasm-pack.log
+worker/
+node_modules/
+.cargo-ok

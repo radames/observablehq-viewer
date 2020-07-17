@@ -1,5 +1,6 @@
 import { html, renderToString } from '@popeindustries/lit-html-server';
 import render from '../render';
+import index from './index.html';
 
 addEventListener('fetch', (event) => {
   event.respondWith(handleRoute(event.request));
@@ -9,8 +10,15 @@ addEventListener('fetch', (event) => {
 async function handleRoute(request) {
   //   const markup = await renderToString(html` <h1>Hello ${name}!</h1> `);
 
-  const out = await processRoute(request);
-  return new Response(out, {
+  const { out, error } = processRoute(request);
+  if (error) {
+    return new Response(index, {
+      headers: {
+        'content-type': 'text/html;charset=UTF-8',
+      },
+    });
+  }
+  return new Response(await out, {
     headers: {
       'content-type': 'text/html;charset=UTF-8',
     },
@@ -27,7 +35,15 @@ function processRoute(request) {
     ? !!parseInt(url.searchParams.get('fullwidth'))
     : false;
   const [root, user, project] = url.pathname.split('/');
-
+  if (!user || !project) {
+    return {
+      out: null,
+      error: true,
+    };
+  }
   const out = render(html, user, project, cellsNames, fullWidth);
-  return renderToString(out);
+  return {
+    out: renderToString(out),
+    error: false,
+  };
 }

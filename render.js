@@ -50,8 +50,8 @@ function render(html, user, project, cellsNames, fullWidth) {
           rel="stylesheet"
           href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"
         />
-        <link href="https://cdn.jsdelivr.net/gh/radames/observablehq-viewer@latest/public/source-serif-pro/source-serif-pro.css" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/gh/radames/observablehq-viewer@latest/public/styles.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/gh/radames/observablehq-viewer@main/public/source-serif-pro/source-serif-pro.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/gh/radames/observablehq-viewer@main/public/styles.css" rel="stylesheet" />
       </head>
       <body>
         <main class="${!fullWidth ? 'mw8' : ''} center wrapper">
